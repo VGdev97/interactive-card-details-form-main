@@ -12,7 +12,7 @@ const LeftSection = ({ cardNumber, cardHolder, expMonths, expYears, cvc }) => {
           <img src={backCard} alt="backCard" />
           <div>
             <span className="absolute top-[44%] right-[12%] lg:right-[13%] lg:top-[39%] text-white text-[11px] lg:text-[15px] tracking-[2px]">
-              {cvc}
+              {cvc ? cvc : "000"}
             </span>
           </div>
         </div>
@@ -27,18 +27,20 @@ const LeftSection = ({ cardNumber, cardHolder, expMonths, expYears, cvc }) => {
             />
 
             <span className="absolute w-full left-[10%] bottom-[35%] text-left text-[18px] lg:text-[27px] tracking-[3px] text-white ">
-              {cardNumber}
+              {cardNumber ? cardNumber : "0000 0000 0000 0000"}
             </span>
 
             <p className="text-[11px] lg:text-[16px] tracking-[1.5px] uppercase text-white absolute w-full bottom-[18%] left-[10%]">
-              {cardHolder}
+              {cardHolder ? cardHolder : "jane appleseed"}
             </p>
 
             <p className="absolute text-[11px] lg:text-[16px] tracking-[1.5px] uppercase text-white text bottom-[18%] right-[10%]">
-              {expMonths && (
+              {expMonths && expYears ? (
                 <p>
                   {expMonths}/{expYears}
                 </p>
+              ) : (
+                "00/00"
               )}
             </p>
           </div>
